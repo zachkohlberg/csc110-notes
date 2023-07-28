@@ -1,0 +1,26 @@
+[book]
+authors = ["Zach Kohlberg"]
+language = "en"
+multilingual = false
+src = "src"
+title = "CSC110 Notebook"
+
+[build]
+build-dir = "book"
+
+[output.html]
+default-theme = "navy"
+
+[output.pdf]
+paper-width = 8.5
+paper-height = 11
+margin-top = 0.25
+margin-bottom = 0.25
+margin-left = 0.4
+margin-right = 0.4
+scale = 0.85
+prefer-css-page-size = true
+generate-tagged-pdf = true
+
+[output.pdf-outline]
+like-wkhtmltopdf = true
