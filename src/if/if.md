@@ -5,11 +5,11 @@ block of code. This means the code inside the if block can be skipped. For
 example:
 
 ```java
-println("Please enter a number less than 100.")
-int number = nextInt()
+println("Please enter a number less than 100.");
+int number = nextInt();
 
 if (number < 100) {
-    println("Thanks for following directions!")
+    println("Thanks for following directions!");
 }
 ```
 

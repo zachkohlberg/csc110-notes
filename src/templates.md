@@ -191,3 +191,75 @@ if (minimumHeight <= height && height <= maximumHeight) {
     ...
 }
 ```
+
+### Else-If Chain
+
+Pattern:
+```
+if (<condition>) {
+    <statement(s)>;
+} else if (<condition>) {
+    <statement(s)>;
+} else if ...
+...
+} else {
+    <statement(s)>;
+}
+```
+
+Example:
+```java
+if (month == 1) {
+    println("January");
+} else if (month == 2) {
+    println("February");
+} else if ...
+...
+} else {
+    println("December");
+}
+```
+
+### Initialize Variable With If
+
+Pattern:
+```
+<type> <name>;
+if (<condition>) {
+    <name> = <expression>;
+} else {
+    <name> = <expression>;
+}
+
+<type> <name>;
+if (<condition>) {
+    <name> = <expression>;
+} else if (<condition>) {
+    <name> = <expression>;
+} else if ...
+...
+} else {
+    <name> = <expression>;
+}
+```
+
+Example:
+```java
+String parity;
+if (number % 2 == 0) {
+    parity = "even";
+} else {
+    parity = "odd";
+}
+
+String monthText;
+if (monthNumber == 1) {
+    monthText = "January";
+} else if (monthNumber == 2) {
+    monthText = "February";
+} else if ...
+...
+else {
+    monthText = "December";
+}
+```
