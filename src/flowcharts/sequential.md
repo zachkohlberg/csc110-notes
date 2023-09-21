@@ -17,7 +17,7 @@ others by arrows
 - **Lines**: if the flowchart reads left to right, top to bottom, then the
 arrows can be left off the connections
 
-![Sequential Symbols](../../../dia/flowcharts/sequential_symbols.png)
+![Sequential Symbols](../dia/flowcharts/sequential_symbols.png)
 
 ## Reading a Flowchart
 
@@ -27,7 +27,7 @@ scripts.
 
 ### Hello World
 
-![Hello World](../../../dia/flowcharts/hello_world.png)
+![Hello World](../dia/flowcharts/hello_world.png)
 
 ```java
 println("Hello, world!")
@@ -35,7 +35,7 @@ println("Hello, world!")
 
 ### Repeat It
 
-![Repeat It](../../../dia/flowcharts/repeat_it.png)
+![Repeat It](../dia/flowcharts/repeat_it.png)
 
 ```java
 println("Please enter some text.")
@@ -46,7 +46,7 @@ println(text)
 
 ### Simple Age
 
-![Simple Age](../../../dia/flowcharts/simple_age.png)
+![Simple Age](../dia/flowcharts/simple_age.png)
 
 ```java
 println("Please enter the year you were born.")

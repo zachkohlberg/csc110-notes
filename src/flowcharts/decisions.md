@@ -11,7 +11,7 @@ symbol states the condition, which must usually be true or false. Each branch
 coming from this symbol is labelled with the result that would cause the program
 to follow that branch (again, usually true and false).
 
-![Decision Symbols](../../../dia/flowcharts/decision_symbols.png)
+![Decision Symbols](../dia/flowcharts/decision_symbols.png)
 
 ## Selection vs Iteration
 
@@ -32,7 +32,7 @@ Iteration is handled with loops (while, do-while, for).
 The flowcharts below demonstrate selection. The equivalent jshell scripts are
 also shown after each flowchart.
 
-![Type Five](../../../dia/flowcharts/type_five.png)
+![Type Five](../dia/flowcharts/type_five.png)
 
 ```java
 println("Please type the number 5.")
@@ -44,7 +44,7 @@ if (five == 5) {
 }
 ```
 
-![Sign](../../../dia/flowcharts/sign.png)
+![Sign](../dia/flowcharts/sign.png)
 
 ```java
 println("Please enter a number.")
@@ -65,7 +65,7 @@ if (num > 0) {
 The flowcharts below demonstrate iteration. The equivalent jshell scripts are
 also shown after each flowchart.
 
-![Type Five Loop](../../../dia/flowcharts/type_five_loop.png)
+![Type Five Loop](../dia/flowcharts/type_five_loop.png)
 
 This flowchart duplicates an instruction to more closely match the structure of
 the jshell code below.
@@ -80,7 +80,7 @@ while (five != 5) {
 println("Thank you for typing 5.")
 ```
 
-![Countdown](../../../dia/flowcharts/countdown.png)
+![Countdown](../dia/flowcharts/countdown.png)
 
 ```java
 println("Please type a positive integer.")
