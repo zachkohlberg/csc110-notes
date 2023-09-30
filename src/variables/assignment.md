@@ -39,13 +39,13 @@ calculation before it assigns the new value. We can see this if we add a
 declaration and several print statements to the program and run it in Jshell:
 
 ```java
-int x
-x = 5
-println("x is " + x)
-x = 6
-println("x is " + x)
-x = x + 3
-println("x is " + x)
+int x;
+x = 5;
+println("x is " + x);
+x = 6;
+println("x is " + x);
+x = x + 3;
+println("x is " + x);
 ```
 
 The equality operator (`==`) has a meaning closer to how we would interpret an
@@ -57,20 +57,20 @@ be true, and both yes (`true`) and no (`false`) are valid answers to that
 question. We can demonstrate this with the following program:
 
 ```java
-int x = 10
-int y = 13
-boolean xEqualsItself = (x == x)
-boolean xEqualsY = (x == y)
-boolean xEqualsFive = (x == 5)
-boolean xEqualsTen = (x == 10)
-boolean xEqualsItselfPlus1 = (x == x + 1)
-println("The value of x is " + x)
-println("The value of y is " + y)
-println("Does x equal itself? " + xEqualsItself)
-println("Does x equal y? " + xEqualsY)
-println("Does x equal five? " + xEqualsFive)
-println("Does x equal ten? " + xEqualsTen)
-println("Does x equal itself plus one? " + xEqualsItselfPlus1)
+int x = 10;
+int y = 13;
+boolean xEqualsItself = (x == x);
+boolean xEqualsY = (x == y);
+boolean xEqualsFive = (x == 5);
+boolean xEqualsTen = (x == 10);
+boolean xEqualsItselfPlus1 = (x == x + 1);
+println("The value of x is " + x);
+println("The value of y is " + y);
+println("Does x equal itself? " + xEqualsItself);
+println("Does x equal y? " + xEqualsY);
+println("Does x equal five? " + xEqualsFive);
+println("Does x equal ten? " + xEqualsTen);
+println("Does x equal itself plus one? " + xEqualsItselfPlus1);
 ```
 
 The parenthesis around the equality checks on lines 2-5 are not necessary, but

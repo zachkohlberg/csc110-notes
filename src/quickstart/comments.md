@@ -19,12 +19,12 @@ lines:
 ```java
 // a comment on the same line as the code:
 
-int x = 5 // this makes a variable named x with an initial value of 5
+int x = 5; // this makes a variable named x with an initial value of 5
 
 // a comment on its own line (usually my preference):
 
 // this makes a variable named y with an initial value of 7
-int y = 7
+int y = 7;
 ```
 
 You can create a comment that spans multiple lines (a block comment) using `/*`

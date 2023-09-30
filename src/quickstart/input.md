@@ -14,7 +14,7 @@ You can read a line of text with the `nextLine()` function. If you try this in
 jshell, you should see the following:
 
 ```
-jshell> nextLine()
+jshell> nextLine();
 
 ```
 
@@ -22,7 +22,7 @@ Jshell will continue waiting until you type something and press enter, so
 go ahead and type some text:
 
 ```
-jshell> nextLine()
+jshell> nextLine();
 Hello, Jshell!
 $1 ==> "Hello, Jshell!"
 
@@ -34,10 +34,10 @@ we need to assign the result to a variable. All of the input functions can be
 used in expressions, so you can assign input to a variable like this:
 
 ```
-jshell> var input = nextLine()
+jshell> var input = nextLine();
 Hello again, Jshell!
 
-jshell> println(input)
+jshell> println(input);
 Hello again, Jshell!
 
 jshell>

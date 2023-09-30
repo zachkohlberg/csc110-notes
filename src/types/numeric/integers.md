@@ -28,19 +28,19 @@ Before you run it, write down what number you think each print statement will
 output.
 
 ```java
-byte a = 255
-byte b = -256
-byte c = 200
-int d = 2147483647
+byte a = 255;
+byte b = -256;
+byte c = 200;
+int d = 2147483647;
 
-println(a + 1)
-println(a + 5)
-println(b - 1)
-println(b + 1)
-println(c + 55)
-println(c + 56)
-println(c + 100)
-println(d + 1)
+println(a + 1);
+println(a + 5);
+println(b - 1);
+println(b + 1);
+println(c + 55);
+println(c + 56);
+println(c + 100);
+println(d + 1);
 ```
 
 We'll see exactly why this happens when we learn how binary numbers work.

@@ -30,8 +30,8 @@ allowing Java to infer the type, or explicitly stating the type before the
 variable's name. Here are two examples:
 
 ```java
-var x = 5 // type is inferred to be int
-int y = 5 // type is explicitly stated as int
+var x = 5; // type is inferred to be int
+int y = 5; // type is explicitly stated as int
 ```
 
 In Java, we usually state the type explicitly. The `var` keyword is sometimes
@@ -46,10 +46,10 @@ were declared (the `= 5` sets their initial value to `5`). However, if we state
 the type of a variable, we are allowed to initialize it later:
 
 ```java
-int x // declared, but not initialized
-println("We've not yet set a value for x.")
-x = 5 // this is the first time we set x's value, so it's now initialized
-println("Now x is initialized to " + x + ".")
+int x; // declared, but not initialized
+println("We've not yet set a value for x.");
+x = 5; // this is the first time we set x's value, so it's now initialized
+println("Now x is initialized to " + x + ".");
 ```
 
 If you have an uninitialized variable, it is an error to try to access the data
@@ -57,10 +57,10 @@ stored inside that variable. If we try to print the value of `x` before it's
 been initialized, then we'll get an error message:
 
 ```java
-int x
-println("I'd tell you that x is equal to " + x + ", but that's not allowed yet!")
-x = 10
-println("Now we can safely print that x is equal to " + x + ".")
+int x;
+println("I'd tell you that x is equal to " + x + ", but that's not allowed yet!");
+x = 10;
+println("Now we can safely print that x is equal to " + x + ".");
 ```
 
 Usually you won't have a reason to declare a variable without initilizing it.

@@ -263,3 +263,87 @@ else {
     monthText = "December";
 }
 ```
+
+### While Loop
+
+Pattern:
+```
+while (<condition>) {
+    statement(s);
+}
+```
+
+Example:
+```java
+int x = 0;
+while (x < 1 || x > 10) {
+    println("Please enter a number from 1 to 10.");
+    x = nextInt();
+}
+```
+
+### Counting Loop
+
+Pattern:
+```
+// Count up
+int <counting variable> = 0;
+while (<counting variable> < <total repetitions>) {
+    <statement(s)>;
+    <counting variable> = <counting variable> + 1;
+}
+
+// Count down
+int <counting variable> = <total repetitions>;
+while (<counting variable> > 0) {
+    <statement(s)>;
+    <counting variable> = <counting variable> - 1;
+}
+```
+
+Examples:
+```java
+// Count up 0 to 14
+int count = 0;
+while (count < 15) {
+    if (count % 2 == 0) {
+        println(count + " is even.");
+    } else {
+        println(count + " is odd.");
+    }
+    count = count + 1;
+}
+
+// Count up 1 to 15
+int count = 1;
+while (count <= 15) {
+    if (count % 2 == 0) {
+        println(count + " is even.");
+    } else {
+        println(count + " is odd.");
+    }
+    count = count + 1;
+}
+
+// Count down 15 to 1
+int count = 15;
+while (count > 0) {
+    if (count % 2 == 0) {
+        println(count + " is even.");
+    } else {
+        println(count + " is odd.");
+    }
+    count = count - 1;
+}
+
+// Count down 14 to 0
+int count = 14;
+while (count >= 0) {
+    if (count % 2 == 0) {
+        println(count + " is even.");
+    } else {
+        println(count + " is odd.");
+    }
+    count = count - 1;
+}
+```

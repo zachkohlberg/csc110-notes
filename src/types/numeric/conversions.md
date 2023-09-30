@@ -25,14 +25,14 @@ on the list, but it will not implicitly convert any type to a `char`.
 The following code demonstrates a few implicit conversions.
 
 ```java
-byte a = 10
-short b = a
-int c = b
-long d = c
-float e = d
-double f = e
+byte a = 10;
+short b = a;
+int c = b;
+long d = c;
+float e = d;
+double f = e;
 
-println(a + ", " + b + ", " + c + ", " + d + ", " + e + ", " + f)
+println(a + ", " + b + ", " + c + ", " + d + ", " + e + ", " + f);
 ```
 
 ## Explicit Conversions
@@ -43,24 +43,24 @@ order of the types in the last example, we'll see this happen with every line
 but the first. Try running the following script in jshell:
 
 ```java
-double a = 10
-float b = a
-long c = a
-int d = a
-short e = a
-byte f = a
+double a = 10;
+float b = a;
+long c = a;
+int d = a;
+short e = a;
+byte f = a;
 ```
 
 To make this work, we need to state the type we want to convert to in
 parenthesis before the expression we wish to convert:
 
 ```java
-double a = 10
-float b = (float)a
-long c = (long)a
-int d = (int)a
-short e = (short)a
-byte f = (byte)a
+double a = 10;
+float b = (float)a;
+long c = (long)a;
+int d = (int)a;
+short e = (short)a;
+byte f = (byte)a;
 
-println(a + ", " + b + ", " + c + ", " + d + ", " + e + ", " + f)
+println(a + ", " + b + ", " + c + ", " + d + ", " + e + ", " + f);
 ```

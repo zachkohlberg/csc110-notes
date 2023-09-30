@@ -30,3 +30,13 @@ When an if statement is executed, the condition is first evaluated. This will
 result in either `true` or `false`. If the condition is `true`, then the body
 of the if statement will execute. If the condition is `false`, then the program
 skips the body and continues executing the rest of the program.
+
+## Semicolons
+
+Note that we do not include a semicolon on the lines with curly braces. Java
+expects that a **statement**, as in a line of code that represents a
+complete instruction, will always end in a semicolon. The `if (condition) {`
+line is not an instruction on its own, so we should not place a semicolon on
+that line. In general, any time you write a line of code that would normally be
+followed by an opening curly brace (such as an if), you should not use a
+semicolon on that line.

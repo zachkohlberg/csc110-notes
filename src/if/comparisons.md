@@ -34,13 +34,13 @@ If you want to compare two strings, you'll need to use the `.equals()` [method](
 ../quickstart/functions.md#methods):
 
 ```java
-println("Please enter your name.")
-String name = nextLine()
+println("Please enter your name.");
+String name = nextLine();
 
 if (name.equals("Zach")) {
-    println("Hello, Professor Kohlberg!")
+    println("Hello, Professor Kohlberg!");
 } else {
-    println("Hello, " + name + "!")
+    println("Hello, " + name + "!");
 }
 ```
 

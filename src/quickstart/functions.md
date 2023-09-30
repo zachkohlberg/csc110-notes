@@ -22,7 +22,7 @@ the same name, one that requires arguments and one that doesn't), but the
 parenthesis are always required, even if the function never has arguments.
 An example would be the `println` function, which can be called with no
 arguments (`println()` only prints a blank line), but it otherwise needs an
-argument to tell it what text to print (`println("Hello, World!")` prints the
+argument to tell it what text to print (`println("Hello, World!");` prints the
 message `Hello, World!`).
 
 ## Return Value
@@ -35,7 +35,7 @@ the result for something or store it in a variable for later.
 Calling `readInt` on its own isn't very useful because the integer isn't saved
 anywhere.
 Calling `readInt` **and** assigning the result to a variable
-(`int x = readInt()`) lets you use the number you read in other parts of your
+(`int x = readInt();`) lets you use the number you read in other parts of your
 code.
 
 ## Methods

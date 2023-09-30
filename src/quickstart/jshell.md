@@ -55,15 +55,16 @@ $
 ## Hello World: Interactive Mode
 
 Now we'll write some Java code. Open jshell again and enter
-`System.out.println("Hello, world!")`. Jshell should respond by repeating
-`Hello, world!` on the next line:
+`System.out.println("Hello, world!");` (note: most Java code will end with a
+semicolon (`;`) character). Jshell should respond by repeating `Hello, world!`
+on the next line:
 
 ```
 $ jshell
 |  Welcome to JShell -- Version 17.0.7
 |  For an introduction type: /help intro
 
-jshell> System.out.println("Hello, world!")
+jshell> System.out.println("Hello, world!");
 Hello, world!
 
 jshell>
@@ -109,13 +110,13 @@ jshell will continue running once it reaches the end of the script.
 
 When jshell runs in interactive mode, it will print additional information even
 if you don't include a `println`.
-For example, try typing `2 + 2` in jshell:
+For example, try typing `2 + 2;` in jshell:
 
 ```
 |  Welcome to JShell -- Version 17.0.7
 |  For an introduction type: /help intro
 
-jshell> 2 + 2
+jshell> 2 + 2;
 $1 ==> 4
 
 jshell>
@@ -123,7 +124,7 @@ jshell>
 
 When running a script, you will only see error messages and output that you
 explicitly print.
-For example, write a script with the line from before (`2 + 2`), save it as
+For example, write a script with the line from before (`2 + 2;`), save it as
 `add.jsh`, and run it with `jshell add.jsh`.
 
 The script:
@@ -247,13 +248,27 @@ Try using `println` to print a message, as shown below, to further verify that
 the startup scripts were loaded correctly:
 
 ```
-jshell> println("Hello, world!")
+jshell> println("Hello, world!");
 Hello, world!
 ```
 
 If you run into issues with the startup scripts, you can always reset them with
 the command `/set start -retain DEFAULT`, and then repeat the previous
 directions to add the `PRINTING` and `INPUT.jsh` scripts.
+
+## Semicolons
+
+Jshell considers semicolons optional some of the time. I've chosen to include
+them in all of my code examples, and I recommend you use them in your code as
+well for the following reasons:
+- When we introduce code blocks, jshell will require semicolons
+- When we transition to compiled Java, semicolons will be required for your code
+to compile and run
+
+I think you'll have an easier time dealing with semicolons if you're in the
+habit of using them from the start. If you leave them off your code now, you'll
+have more trouble in a few weeks when you need to start using them with if
+statement code blocks.
 
 ## Summary
 

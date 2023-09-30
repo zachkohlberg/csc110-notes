@@ -99,7 +99,7 @@ If we assign an initial value of `5`, for example, then it will infer
 that the type is `int`.
 However, it is standard practice in Java to specify the type of a variable
 rather than using the `var` keyword in most situations.
-Instead of `var x = 5`, we would write `int x = 5`, putting the type before the
+Instead of `var x = 5;`, we would write `int x = 5;`, putting the type before the
 variable name instead of `var`.
 This makes it easier to specify types other than the default `int` and `double`
 for numbers, and it makes it easier to tell what type a variable is when looking

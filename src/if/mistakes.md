@@ -1,5 +1,77 @@
 # Mistakes to Avoid
 
+## Semicolon Misuse
+
+With if statements, we've introduced lines of code that don't end in semicolons.
+As a general rule, you should never add a semicolon to a line of code that
+normally ends in an opening curly brace. If we review the structure of an if
+statement, we'll see that this means you **do not** add semicolons after an `if`
+or an `else`, or the condition of an `if`.
+
+```java
+if (condition) {
+    statement;
+} else {
+    statement;
+}
+```
+
+We also do not normally put semicolons after curly braces, whether they are
+opening or closing braces.
+
+Programmers who aren't used to the rules for semicolons sometimes make the
+mistake of adding them where they aren't needed. Depending on where you add the
+extra semicolon, it may significantly alter the meaning of your code in a way
+you did not expect. For example, what do you think will happen when we run the
+following jshell script?
+
+```java
+int x = nextInt();
+if (x < 0); {
+    println("You entered a negative number.");
+}
+```
+
+Try running the program and entering different numbers: try a negative number,
+zero, and a positive number. Did the program work as you expected?
+
+There's an extra semicolon after the if statement's condition on the second
+line. This is valid code, but it probably doesn't mean what the programmer
+intended. Java interprets `if (condition);` as an empty if statement with no
+body. Java also allows us to create code blocks that aren't tied to if
+statements or other structures. All of this means that the previous program is
+equivalent to this program:
+
+```java
+int x = nextInt();
+
+if (x < 0) {
+    ; // Empty statement does nothing
+}
+
+// A lone block of code that will always execute, even when x isn't negative!
+{
+    println("You entered a negative number.");
+}
+```
+
+We'd get a similar result if we placed a semicolon after an `else`:
+
+```java
+int x = nextInt();
+if (x < 0) {
+    println("You entered a negative number.");
+} else; {
+    println("You entered zero or a positive number.");
+}
+```
+
+Notice the semicolon after the else on the fourth line. Try running this program
+and noting when its output is incorrect, then run it without the extra
+semicolon. We have the same issue as before: the else's body is actually the
+empty statement denoted by the semicolon, and the code block that *appears* to
+be its body is actually completely separate from the if-else.
+
 ## Poor Indentation
 
 You should always indent code nested within a code block, and you should indent
@@ -172,7 +244,7 @@ happen in version A compared to version B:
 If you try each combination of truth values in jshell with no braces, you'll
 observe the results predicted for version B.
 
-## Variable Scope & Shadowing
+## Variable Scope and Shadowing
 
 Accidental [shadowing](../variables/scope.md#shadowing) is a common cause of
 errors when writing if statements. Make sure you understand the difference

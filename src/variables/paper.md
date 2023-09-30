@@ -16,9 +16,9 @@ we would write the initial value on the paper beneath or next to `x`.
 Example:
 
 ```java
-int x
-x = 5
-int y = 10
+int x;
+x = 5;
+int y = 10;
 ```
 
 > x -> 5
@@ -31,9 +31,9 @@ Reassigning the variable in code (`x = 10`) is equivalent to crossing out the
 old value of `x` and replacing it with the new value.
 
 ```java
-x = 11
-y = -4
-x = 3
+x = 11;
+y = -4;
+x = 3;
 ```
 
 > x -> ~~5~~ ~~11~~ 3
@@ -47,8 +47,8 @@ else. We could write it down on a separate piece of paper, or we could read the
 text out loud to the other person.
 
 ```java
-println(x)
-println(y)
+println(x);
+println(y);
 ```
 
 Variable record
@@ -68,11 +68,11 @@ variable, then substitute the variable's value as we simplify the expression
 one step at a time.
 
 ```java
-x = 10
-y = 5
-x = x + y
-y = x * 2 - 4
-println("x = " + x + " and y = " + y)
+x = 10;
+y = 5;
+x = x + y;
+y = x * 2 - 4;
+println("x = " + x + " and y = " + y);
 ```
 
 Variable record
