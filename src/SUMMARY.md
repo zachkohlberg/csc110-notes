@@ -2,6 +2,8 @@
 
 [Introduction](./intro.md)
 
+# Setup
+
 - [Software](./software.md)
     - [Terminal](./software/terminal.md)
     - [Text Editor](./software/text_editor.md)
@@ -14,6 +16,9 @@
     - [Data Types](./quickstart/data_types.md)
     - [Functions](./quickstart/functions.md)
     - [Comments](./quickstart/comments.md)
+
+# Jshell
+
 - [Variables](./variables.md)
     - [Creating Variables](./variables/creating_variables.md)
     - [Assignment Operator](./variables/assignment.md)
@@ -63,6 +68,18 @@
     - [Flag-Controlled Loop](./loops/flag.md)
     - [For Loop](./loops/for.md)
     - [Nested Loops]()
+- [Functions](./jshell/functions.md)
+    - [Defining Functions in Jshell](./jshell/functions/define.md)
+    - [Calling Functions](./jshell/functions/call.md)
+- [Arrays](./jshell/arrays.md)
+    - [Creating Arrays]()
+    - [Accessing and Mutating Arrays]()
+    - [Mutable Data]()
+    - [Iterating Over Arrays]()
+
+# Compiled Java
+
+- [Jshell to Compiled Java]()
 
 [Glossary]()
 [Syntax Templates and Common Patterns](./templates.md)
