@@ -72,10 +72,10 @@
     - [Defining Functions in Jshell](./jshell/functions/define.md)
     - [Calling Functions](./jshell/functions/call.md)
 - [Arrays](./jshell/arrays.md)
-    - [Creating Arrays]()
-    - [Accessing and Mutating Arrays]()
-    - [Mutable Data]()
-    - [Iterating Over Arrays]()
+    - [Creating Arrays](./jshell/arrays/create.md)
+    - [Accessing and Mutating Arrays](./jshell/arrays/access.md)
+    - [Iterating Over Arrays](./jshell/arrays/iteration.md)
+    - [Mutable Data](./jshell/arrays/mutability.md)
 
 # Compiled Java
 

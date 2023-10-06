@@ -69,9 +69,10 @@ int divide(int x, int y) {
 }
 ```
 
-This is not a valid function, because when `y` is equal to `0` the function does
+This is not a valid function because when `y` is equal to `0`, the function does
 not return a value. It must either always return a value or never return a
-value. There are exceptions (and they're literally called **exceptions**), but
+value. There are exceptions (and they're literally called [exceptions](
+https://docs.oracle.com/javase/tutorial/essential/exceptions/index.html)), but
 for now all of our functions must return something if they have a return type.
 We don't have a good way to handle errors yet, so the best we can do for now is
 let our `divide` function attempt the division and crash if it divides by zero:
@@ -106,11 +107,12 @@ int divide(int x, int y) {
 }
 ```
 
-## Examples
+## Practice
 
-Here are a few examples of small functions we could write. Try writing a few of
-these functions yourself before looking at the code. Before you write a function
-definition, you should answer the following questions:
+Here are a few descriptions of small functions we could write. Try writing a few
+of them yourself before looking at the solutions.
+
+Before you write a function definition, it may help to answer two questions:
 - Does this function require any parameters? If it always does the same thing,
 or it doesn't rely on input from other parts of the program, then it probably
 doesn't need parameters.
@@ -119,13 +121,14 @@ to use a value created by the function, then it should return that value.
 Printing a value is not the same as returning it, and if the function's only job
 is to print something then it probably doesn't return a value.
 
+The function descriptions:
 1. A function named `sayHello` that prints the message "Hello, World!".
 2. A function named `greetPerson` that takes a name and prints a greeting in the
-form of "Hello <name>, how are you doing today?".
+form of "Hello \<name\>, how are you doing today?".
 3. A function named `square` that calculates (but does not print) the square of
 an integer.
 
-Solutions:
+Solution code:
 
 ```java
 void sayHello() {
@@ -141,8 +144,7 @@ int square(int x) {
 }
 ```
 
-### Explanations
-
+Solution explanations:
 1. The `sayHello` function does not require any parameter input because it
 always does the same thing. No part of the function's behavior needs to change,
 and it doesn't need additional information to print "Hello, World!". The
