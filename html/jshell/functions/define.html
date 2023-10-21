@@ -1,0 +1,369 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js navy">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Defining Functions in Jshell - CSC110 Notebook</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "navy";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = null;
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../../intro.html">Introduction</a></li><li class="chapter-item expanded affix "><li class="part-title">Setup</li><li class="chapter-item expanded "><a href="../../software.html"><strong aria-hidden="true">1.</strong> Software</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../software/terminal.html"><strong aria-hidden="true">1.1.</strong> Terminal</a></li><li class="chapter-item expanded "><a href="../../software/text_editor.html"><strong aria-hidden="true">1.2.</strong> Text Editor</a></li><li class="chapter-item expanded "><a href="../../software/java.html"><strong aria-hidden="true">1.3.</strong> Java</a></li></ol></li><li class="chapter-item expanded "><a href="../../quickstart.html"><strong aria-hidden="true">2.</strong> Quickstart</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../quickstart/jshell.html"><strong aria-hidden="true">2.1.</strong> Jshell</a></li><li class="chapter-item expanded "><a href="../../quickstart/output.html"><strong aria-hidden="true">2.2.</strong> Output</a></li><li class="chapter-item expanded "><a href="../../quickstart/variables.html"><strong aria-hidden="true">2.3.</strong> Variables</a></li><li class="chapter-item expanded "><a href="../../quickstart/input.html"><strong aria-hidden="true">2.4.</strong> Input</a></li><li class="chapter-item expanded "><a href="../../quickstart/data_types.html"><strong aria-hidden="true">2.5.</strong> Data Types</a></li><li class="chapter-item expanded "><a href="../../quickstart/functions.html"><strong aria-hidden="true">2.6.</strong> Functions</a></li><li class="chapter-item expanded "><a href="../../quickstart/comments.html"><strong aria-hidden="true">2.7.</strong> Comments</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">Jshell</li><li class="chapter-item expanded "><a href="../../variables.html"><strong aria-hidden="true">3.</strong> Variables</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../variables/creating_variables.html"><strong aria-hidden="true">3.1.</strong> Creating Variables</a></li><li class="chapter-item expanded "><a href="../../variables/assignment.html"><strong aria-hidden="true">3.2.</strong> Assignment Operator</a></li><li class="chapter-item expanded "><a href="../../variables/names.html"><strong aria-hidden="true">3.3.</strong> Variable Names</a></li><li class="chapter-item expanded "><a href="../../variables/paper.html"><strong aria-hidden="true">3.4.</strong> Pen & Paper Analogy</a></li><li class="chapter-item expanded "><a href="../../variables/scope.html"><strong aria-hidden="true">3.5.</strong> Scope and Shadowing</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.6.</strong> Reference Types</div></li></ol></li><li class="chapter-item expanded "><a href="../../io.html"><strong aria-hidden="true">4.</strong> I/O</a></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">4.1.</strong> Outputting to System.out and System.err</div></li><li class="chapter-item expanded "><a href="../../io/printf.html"><strong aria-hidden="true">4.2.</strong> Formatting with printf</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.3.</strong> Reading from System.in with a Scanner</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.4.</strong> Redirecting Standard I/O</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.5.</strong> File Input with Scanner</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.6.</strong> File Output with PrintWriter</div></li></ol></li><li class="chapter-item expanded "><a href="../../types.html"><strong aria-hidden="true">5.</strong> Types</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../types/numeric.html"><strong aria-hidden="true">5.1.</strong> Numeric Types</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../types/numeric/integers.html"><strong aria-hidden="true">5.1.1.</strong> Integers</a></li><li class="chapter-item expanded "><a href="../../types/numeric/floats.html"><strong aria-hidden="true">5.1.2.</strong> Floating-Point Numbers</a></li><li class="chapter-item expanded "><a href="../../types/numeric/chars.html"><strong aria-hidden="true">5.1.3.</strong> Chars</a></li><li class="chapter-item expanded "><a href="../../types/numeric/modulo.html"><strong aria-hidden="true">5.1.4.</strong> Modulo</a></li><li class="chapter-item expanded "><a href="../../types/numeric/conversions.html"><strong aria-hidden="true">5.1.5.</strong> Numeric Conversions</a></li></ol></li><li class="chapter-item expanded "><a href="../../types/strings.html"><strong aria-hidden="true">5.2.</strong> Strings</a></li><li class="chapter-item expanded "><a href="../../types/booleans.html"><strong aria-hidden="true">5.3.</strong> Booleans</a></li><li class="chapter-item expanded "><a href="../../types/primitives.html"><strong aria-hidden="true">5.4.</strong> Primitive Type Summary</a></li></ol></li><li class="chapter-item expanded "><a href="../../flowcharts.html"><strong aria-hidden="true">6.</strong> Flowcharts</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../flowcharts/sequential.html"><strong aria-hidden="true">6.1.</strong> Sequential Instructions</a></li><li class="chapter-item expanded "><a href="../../flowcharts/decisions.html"><strong aria-hidden="true">6.2.</strong> Decision Points</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.3.</strong> Functions</div></li></ol></li><li class="chapter-item expanded "><a href="../../if.html"><strong aria-hidden="true">7.</strong> If Statements</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../if/if.html"><strong aria-hidden="true">7.1.</strong> If</a></li><li class="chapter-item expanded "><a href="../../if/comparisons.html"><strong aria-hidden="true">7.2.</strong> Comparisons</a></li><li class="chapter-item expanded "><a href="../../if/else.html"><strong aria-hidden="true">7.3.</strong> Else</a></li><li class="chapter-item expanded "><a href="../../if/nested.html"><strong aria-hidden="true">7.4.</strong> Nested Ifs</a></li><li class="chapter-item expanded "><a href="../../if/else_if.html"><strong aria-hidden="true">7.5.</strong> Else-If</a></li><li class="chapter-item expanded "><a href="../../if/mistakes.html"><strong aria-hidden="true">7.6.</strong> Mistakes to Avoid</a></li></ol></li><li class="chapter-item expanded "><a href="../../boolean.html"><strong aria-hidden="true">8.</strong> Boolean Logic</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../boolean/operators.html"><strong aria-hidden="true">8.1.</strong> Boolean Operators</a></li><li class="chapter-item expanded "><a href="../../boolean/short-circuit.html"><strong aria-hidden="true">8.2.</strong> Short-Circuiting</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">8.3.</strong> Bitwise Operators</div></li></ol></li><li class="chapter-item expanded "><a href="../../early_api.html"><strong aria-hidden="true">9.</strong> Early Java API</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../early_api/math.html"><strong aria-hidden="true">9.1.</strong> Math</a></li><li class="chapter-item expanded "><a href="../../early_api/string.html"><strong aria-hidden="true">9.2.</strong> String</a></li></ol></li><li class="chapter-item expanded "><a href="../../loops.html"><strong aria-hidden="true">10.</strong> Loops</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../loops/while.html"><strong aria-hidden="true">10.1.</strong> While Loop</a></li><li class="chapter-item expanded "><a href="../../loops/do.html"><strong aria-hidden="true">10.2.</strong> Do-While Loop</a></li><li class="chapter-item expanded "><a href="../../loops/counting.html"><strong aria-hidden="true">10.3.</strong> Counting Loop</a></li><li class="chapter-item expanded "><a href="../../loops/flag.html"><strong aria-hidden="true">10.4.</strong> Flag-Controlled Loop</a></li><li class="chapter-item expanded "><a href="../../loops/for.html"><strong aria-hidden="true">10.5.</strong> For Loop</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">10.6.</strong> Nested Loops</div></li></ol></li><li class="chapter-item expanded "><a href="../../jshell/functions.html"><strong aria-hidden="true">11.</strong> Functions</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../jshell/functions/define.html" class="active"><strong aria-hidden="true">11.1.</strong> Defining Functions in Jshell</a></li><li class="chapter-item expanded "><a href="../../jshell/functions/call.html"><strong aria-hidden="true">11.2.</strong> Calling Functions</a></li></ol></li><li class="chapter-item expanded "><a href="../../jshell/arrays.html"><strong aria-hidden="true">12.</strong> Arrays</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../jshell/arrays/create.html"><strong aria-hidden="true">12.1.</strong> Creating Arrays</a></li><li class="chapter-item expanded "><a href="../../jshell/arrays/access.html"><strong aria-hidden="true">12.2.</strong> Accessing and Mutating Arrays</a></li><li class="chapter-item expanded "><a href="../../jshell/arrays/iteration.html"><strong aria-hidden="true">12.3.</strong> Iterating Over Arrays</a></li><li class="chapter-item expanded "><a href="../../jshell/arrays/ref_types.html"><strong aria-hidden="true">12.4.</strong> Reference vs Value Types</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">Compiled Java</li><li class="chapter-item expanded "><a href="../../java/compiled_intro.html"><strong aria-hidden="true">13.</strong> Jshell to Compiled Java</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../java/compiled_intro/program_structure.html"><strong aria-hidden="true">13.1.</strong> Java Program Structure</a></li><li class="chapter-item expanded "><a href="../../java/compiled_intro/compilation.html"><strong aria-hidden="true">13.2.</strong> Compile and Run</a></li><li class="chapter-item expanded "><a href="../../java/compiled_intro/syntax.html"><strong aria-hidden="true">13.3.</strong> Syntax Changes</a></li></ol></li><li class="chapter-item expanded "><div>Glossary</div></li><li class="chapter-item expanded affix "><a href="../../templates.html">Syntax Templates and Common Patterns</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">CSC110 Notebook</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="defining-functions-in-jshell"><a class="header" href="#defining-functions-in-jshell">Defining Functions in Jshell</a></h1>
+<p>A function definition has the following parts:</p>
+<ul>
+<li>If the function returns a value, then it should begin with a return type,
+which tells us what type of value it returns. If a function doesn't return a
+value, then it should begin with the keyword <code>void</code>.</li>
+<li>The function has a name after the return type. Function names follow the
+standard rules for <a href="../../variables/names.html">Java identifiers</a> that we learned
+for variable names.</li>
+<li>If the function has any parameters, then these are listed in parenthesis after
+the function name. If the function has no parameters, then we must still include
+a set of empty parenthesis after the name.</li>
+<li>The function's body (the code it will execute) goes inside a code block after
+the parameter list.</li>
+</ul>
+<pre><code>&lt;return type&gt; &lt;function name&gt;(&lt;parameter list&gt;) {
+    &lt;function body&gt;
+}
+</code></pre>
+<p>A function's parameters tell the program what information the function needs to
+receive from the code that calls it. A parameter acts like a variable, but its
+initial value is supplied when we call it. The parameter list just looks like a
+comma-separated list of variable declarations. For example, if a function needed
+two parameters, a double and a boolean, then its parameter list might look like
+this: <code>functionName(double x, boolean y)</code>. Like variable names, function and
+parameter names should be descriptive whenever possible. I've used generic names
+here because we have no further context for what these parameters mean. If they
+referred to a distance and whether that distance was in metric units, then we
+might instead write <code>functionName(double distance, boolean isMetric)</code>.</p>
+<h2 id="return-values"><a class="header" href="#return-values">Return Values</a></h2>
+<p>If a function is meant to create information for another part of the program to
+use, then it should <strong>return</strong> that information to the code that called it. You
+have already used functions with return values: all of the input functions (
+<code>nextLine</code>, <code>nextInt</code>, etc.) return the value they read from the user, and all
+of the <code>Math</code> functions (<code>abs</code>, <code>min</code>, <code>sqrt</code>, etc.) return the number they
+calculated.</p>
+<p>If we want our function to return a value, then we need to include the value's
+type before the name. We also need to give our function a <strong>return statement</strong>
+that includes the value it returns. A return statement is the <code>return</code> keyword
+followed by an expression whose type matches the function's return type. For
+example, if we had a function that adds two <code>double</code> values, then its return
+statement might look like this: <code>return x + y;</code>, where <code>x</code> and <code>y</code> are the
+function's parameters. The entire function would look like this:</p>
+<pre><code class="language-java">double add(double x, double y) {
+    return x + y;
+}
+</code></pre>
+<p>This isn't a useful function because it's easier to add by writing <code>2 + 3</code> than
+by calling our function with <code>add(2, 3)</code>. This is just a short function that
+demonstrates what a return statement looks like.</p>
+<p>If our function has a return type, then it must <em>always</em> return a value of that
+type. It should not be possible for such a function to end without returning.
+For example, take a look at the following <code>divide</code> function:</p>
+<pre><code class="language-java">int divide(int x, int y) {
+    if (y != 0) {
+        return x / y;
+    }
+}
+</code></pre>
+<p>This is not a valid function because when <code>y</code> is equal to <code>0</code>, the function does
+not return a value. It must either always return a value or never return a
+value. There are exceptions (and they're literally called <a href="https://docs.oracle.com/javase/tutorial/essential/exceptions/index.html">exceptions</a>), but
+for now all of our functions must return something if they have a return type.
+We don't have a good way to handle errors yet, so the best we can do for now is
+let our <code>divide</code> function attempt the division and crash if it divides by zero:</p>
+<pre><code class="language-java">int divide(int x, int y) {
+    return x / y;
+}
+</code></pre>
+<p>When new programmers are using if statements or loops in a function and have
+multiple return statements, it's common to accidentally write functions like the
+first version of divide that aren't guaranteed to return a value. A few tips for
+avoiding this:</p>
+<ul>
+<li>If your return statement is inside an if statement, make sure that if
+statement has an <code>else</code> clause with its own return statement.</li>
+<li>If you have an else-if chain with return statements inside the bodies of the
+ifs/else-ifs, then make sure the chain ends with an <code>else</code> and that this <code>else</code>
+contains a return statement.</li>
+<li>If you have a return statement inside of a loop, then you should probably have
+a default return statement at the end of the function body in case the loop is
+never executed or the return statement inside the loop is never triggered.</li>
+</ul>
+<p>Finally, note that as soon as a function reaches a return statement, the
+function will stop executing. If you put code after a return statement, it will
+never execute:</p>
+<pre><code class="language-java">int divide(int x, int y) {
+    return x / y;
+    println(&quot;This will never be printed!&quot;);
+}
+</code></pre>
+<h2 id="practice"><a class="header" href="#practice">Practice</a></h2>
+<p>Here are a few descriptions of small functions we could write. Try writing a few
+of them yourself before looking at the solutions.</p>
+<p>Before you write a function definition, it may help to answer two questions:</p>
+<ul>
+<li>Does this function require any parameters? If it always does the same thing,
+or it doesn't rely on input from other parts of the program, then it probably
+doesn't need parameters.</li>
+<li>Does this function return anything? If another part of the program would want
+to use a value created by the function, then it should return that value.
+Printing a value is not the same as returning it, and if the function's only job
+is to print something then it probably doesn't return a value.</li>
+</ul>
+<p>The function descriptions:</p>
+<ol>
+<li>A function named <code>sayHello</code> that prints the message &quot;Hello, World!&quot;.</li>
+<li>A function named <code>greetPerson</code> that takes a name and prints a greeting in the
+form of &quot;Hello &lt;name&gt;, how are you doing today?&quot;.</li>
+<li>A function named <code>square</code> that calculates (but does not print) the square of
+an integer.</li>
+</ol>
+<p>Solution code:</p>
+<pre><code class="language-java">void sayHello() {
+    println(&quot;Hello, World!&quot;);
+}
+
+void greetPerson(String name) {
+    println(&quot;Hello &quot; + name + &quot;, how are you doing today?&quot;);
+}
+
+int square(int x) {
+    return x * x;
+}
+</code></pre>
+<p>Solution explanations:</p>
+<ol>
+<li>The <code>sayHello</code> function does not require any parameter input because it
+always does the same thing. No part of the function's behavior needs to change,
+and it doesn't need additional information to print &quot;Hello, World!&quot;. The
+function is printing rather than producing information for another part of the
+program, so it also doesn't need to return anything. This is why its return type
+is <code>void</code>.</li>
+<li>The <code>greetPerson</code> function is supposed to greet someone by name, but the
+description does not say what name we're supposed to use. Instead, it's supposed
+to take any name and insert it into a message, which means it needs us to tell
+it what name to print. This is why we have a <code>name</code> parameter. As with the
+<code>sayHello</code> function, we're not producing information to use in other parts of
+the program, we're sending information outside of the program with <code>println</code>.
+This means we don't need to return anything, and our return type is <code>void</code>.</li>
+<li>The <code>square</code> function needs to know what number it's squaring, and the number
+is supposed to be an <code>int</code> according to the description, so we need a single
+parameter with the type <code>int</code>. This parameter doesn't mean anything beyond the
+fact that it's a number, so an arbitrary name like <code>x</code> or <code>a</code> is fine here. The
+function is supposed to calculate something, not print it, so in order for this
+to be useful we'll have to return the resulting value so another part of the
+program can make use of it. The calculation produces an <code>int</code>, so our return
+type should be <code>int</code>.</li>
+</ol>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../jshell/functions.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="../../jshell/functions/call.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../jshell/functions.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="../../jshell/functions/call.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

@@ -1,0 +1,493 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js navy">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Reference vs Value Types - CSC110 Notebook</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "navy";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = null;
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../../intro.html">Introduction</a></li><li class="chapter-item expanded affix "><li class="part-title">Setup</li><li class="chapter-item expanded "><a href="../../software.html"><strong aria-hidden="true">1.</strong> Software</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../software/terminal.html"><strong aria-hidden="true">1.1.</strong> Terminal</a></li><li class="chapter-item expanded "><a href="../../software/text_editor.html"><strong aria-hidden="true">1.2.</strong> Text Editor</a></li><li class="chapter-item expanded "><a href="../../software/java.html"><strong aria-hidden="true">1.3.</strong> Java</a></li></ol></li><li class="chapter-item expanded "><a href="../../quickstart.html"><strong aria-hidden="true">2.</strong> Quickstart</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../quickstart/jshell.html"><strong aria-hidden="true">2.1.</strong> Jshell</a></li><li class="chapter-item expanded "><a href="../../quickstart/output.html"><strong aria-hidden="true">2.2.</strong> Output</a></li><li class="chapter-item expanded "><a href="../../quickstart/variables.html"><strong aria-hidden="true">2.3.</strong> Variables</a></li><li class="chapter-item expanded "><a href="../../quickstart/input.html"><strong aria-hidden="true">2.4.</strong> Input</a></li><li class="chapter-item expanded "><a href="../../quickstart/data_types.html"><strong aria-hidden="true">2.5.</strong> Data Types</a></li><li class="chapter-item expanded "><a href="../../quickstart/functions.html"><strong aria-hidden="true">2.6.</strong> Functions</a></li><li class="chapter-item expanded "><a href="../../quickstart/comments.html"><strong aria-hidden="true">2.7.</strong> Comments</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">Jshell</li><li class="chapter-item expanded "><a href="../../variables.html"><strong aria-hidden="true">3.</strong> Variables</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../variables/creating_variables.html"><strong aria-hidden="true">3.1.</strong> Creating Variables</a></li><li class="chapter-item expanded "><a href="../../variables/assignment.html"><strong aria-hidden="true">3.2.</strong> Assignment Operator</a></li><li class="chapter-item expanded "><a href="../../variables/names.html"><strong aria-hidden="true">3.3.</strong> Variable Names</a></li><li class="chapter-item expanded "><a href="../../variables/paper.html"><strong aria-hidden="true">3.4.</strong> Pen & Paper Analogy</a></li><li class="chapter-item expanded "><a href="../../variables/scope.html"><strong aria-hidden="true">3.5.</strong> Scope and Shadowing</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.6.</strong> Reference Types</div></li></ol></li><li class="chapter-item expanded "><a href="../../io.html"><strong aria-hidden="true">4.</strong> I/O</a></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">4.1.</strong> Outputting to System.out and System.err</div></li><li class="chapter-item expanded "><a href="../../io/printf.html"><strong aria-hidden="true">4.2.</strong> Formatting with printf</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.3.</strong> Reading from System.in with a Scanner</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.4.</strong> Redirecting Standard I/O</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.5.</strong> File Input with Scanner</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.6.</strong> File Output with PrintWriter</div></li></ol></li><li class="chapter-item expanded "><a href="../../types.html"><strong aria-hidden="true">5.</strong> Types</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../types/numeric.html"><strong aria-hidden="true">5.1.</strong> Numeric Types</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../types/numeric/integers.html"><strong aria-hidden="true">5.1.1.</strong> Integers</a></li><li class="chapter-item expanded "><a href="../../types/numeric/floats.html"><strong aria-hidden="true">5.1.2.</strong> Floating-Point Numbers</a></li><li class="chapter-item expanded "><a href="../../types/numeric/chars.html"><strong aria-hidden="true">5.1.3.</strong> Chars</a></li><li class="chapter-item expanded "><a href="../../types/numeric/modulo.html"><strong aria-hidden="true">5.1.4.</strong> Modulo</a></li><li class="chapter-item expanded "><a href="../../types/numeric/conversions.html"><strong aria-hidden="true">5.1.5.</strong> Numeric Conversions</a></li></ol></li><li class="chapter-item expanded "><a href="../../types/strings.html"><strong aria-hidden="true">5.2.</strong> Strings</a></li><li class="chapter-item expanded "><a href="../../types/booleans.html"><strong aria-hidden="true">5.3.</strong> Booleans</a></li><li class="chapter-item expanded "><a href="../../types/primitives.html"><strong aria-hidden="true">5.4.</strong> Primitive Type Summary</a></li></ol></li><li class="chapter-item expanded "><a href="../../flowcharts.html"><strong aria-hidden="true">6.</strong> Flowcharts</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../flowcharts/sequential.html"><strong aria-hidden="true">6.1.</strong> Sequential Instructions</a></li><li class="chapter-item expanded "><a href="../../flowcharts/decisions.html"><strong aria-hidden="true">6.2.</strong> Decision Points</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.3.</strong> Functions</div></li></ol></li><li class="chapter-item expanded "><a href="../../if.html"><strong aria-hidden="true">7.</strong> If Statements</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../if/if.html"><strong aria-hidden="true">7.1.</strong> If</a></li><li class="chapter-item expanded "><a href="../../if/comparisons.html"><strong aria-hidden="true">7.2.</strong> Comparisons</a></li><li class="chapter-item expanded "><a href="../../if/else.html"><strong aria-hidden="true">7.3.</strong> Else</a></li><li class="chapter-item expanded "><a href="../../if/nested.html"><strong aria-hidden="true">7.4.</strong> Nested Ifs</a></li><li class="chapter-item expanded "><a href="../../if/else_if.html"><strong aria-hidden="true">7.5.</strong> Else-If</a></li><li class="chapter-item expanded "><a href="../../if/mistakes.html"><strong aria-hidden="true">7.6.</strong> Mistakes to Avoid</a></li></ol></li><li class="chapter-item expanded "><a href="../../boolean.html"><strong aria-hidden="true">8.</strong> Boolean Logic</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../boolean/operators.html"><strong aria-hidden="true">8.1.</strong> Boolean Operators</a></li><li class="chapter-item expanded "><a href="../../boolean/short-circuit.html"><strong aria-hidden="true">8.2.</strong> Short-Circuiting</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">8.3.</strong> Bitwise Operators</div></li></ol></li><li class="chapter-item expanded "><a href="../../early_api.html"><strong aria-hidden="true">9.</strong> Early Java API</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../early_api/math.html"><strong aria-hidden="true">9.1.</strong> Math</a></li><li class="chapter-item expanded "><a href="../../early_api/string.html"><strong aria-hidden="true">9.2.</strong> String</a></li></ol></li><li class="chapter-item expanded "><a href="../../loops.html"><strong aria-hidden="true">10.</strong> Loops</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../loops/while.html"><strong aria-hidden="true">10.1.</strong> While Loop</a></li><li class="chapter-item expanded "><a href="../../loops/do.html"><strong aria-hidden="true">10.2.</strong> Do-While Loop</a></li><li class="chapter-item expanded "><a href="../../loops/counting.html"><strong aria-hidden="true">10.3.</strong> Counting Loop</a></li><li class="chapter-item expanded "><a href="../../loops/flag.html"><strong aria-hidden="true">10.4.</strong> Flag-Controlled Loop</a></li><li class="chapter-item expanded "><a href="../../loops/for.html"><strong aria-hidden="true">10.5.</strong> For Loop</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">10.6.</strong> Nested Loops</div></li></ol></li><li class="chapter-item expanded "><a href="../../jshell/functions.html"><strong aria-hidden="true">11.</strong> Functions</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../jshell/functions/define.html"><strong aria-hidden="true">11.1.</strong> Defining Functions in Jshell</a></li><li class="chapter-item expanded "><a href="../../jshell/functions/call.html"><strong aria-hidden="true">11.2.</strong> Calling Functions</a></li></ol></li><li class="chapter-item expanded "><a href="../../jshell/arrays.html"><strong aria-hidden="true">12.</strong> Arrays</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../jshell/arrays/create.html"><strong aria-hidden="true">12.1.</strong> Creating Arrays</a></li><li class="chapter-item expanded "><a href="../../jshell/arrays/access.html"><strong aria-hidden="true">12.2.</strong> Accessing and Mutating Arrays</a></li><li class="chapter-item expanded "><a href="../../jshell/arrays/iteration.html"><strong aria-hidden="true">12.3.</strong> Iterating Over Arrays</a></li><li class="chapter-item expanded "><a href="../../jshell/arrays/ref_types.html" class="active"><strong aria-hidden="true">12.4.</strong> Reference vs Value Types</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">Compiled Java</li><li class="chapter-item expanded "><a href="../../java/compiled_intro.html"><strong aria-hidden="true">13.</strong> Jshell to Compiled Java</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../java/compiled_intro/program_structure.html"><strong aria-hidden="true">13.1.</strong> Java Program Structure</a></li><li class="chapter-item expanded "><a href="../../java/compiled_intro/compilation.html"><strong aria-hidden="true">13.2.</strong> Compile and Run</a></li><li class="chapter-item expanded "><a href="../../java/compiled_intro/syntax.html"><strong aria-hidden="true">13.3.</strong> Syntax Changes</a></li></ol></li><li class="chapter-item expanded "><div>Glossary</div></li><li class="chapter-item expanded affix "><a href="../../templates.html">Syntax Templates and Common Patterns</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">CSC110 Notebook</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="reference-vs-value-types"><a class="header" href="#reference-vs-value-types">Reference vs Value Types</a></h1>
+<p>Arrays and Strings are both types of objects. We can refer to them as reference
+types, which differ from <a href="../../types/primitives.html">primitive types (also called value types)</a> in several ways. The primary difference is how the
+program stores their data:</p>
+<ul>
+<li>Value-type variables directly store the data for the value they represent. If
+<code>x</code> and <code>y</code> are value types, then the assignment statement <code>x = y</code> will copy the
+data from <code>x</code> into <code>y</code>.</li>
+<li>Reference-type variables store a memory address that points to their data,
+which is stored in a region of memory called the <strong>heap</strong>. If <code>x</code> and <code>y</code> are
+reference types, then the assignment statement <code>x = y</code> will copy the memory
+address from <code>x</code> into <code>y</code>, which means both <code>x</code> and <code>y</code> will be pointing to the
+same object.</li>
+</ul>
+<h2 id="comparing-reference-types"><a class="header" href="#comparing-reference-types">Comparing Reference Types</a></h2>
+<p>When you compare two variables using <code>==</code> or <code>!=</code>, the program checks whether
+the data stored in the variables is identical. This works fine for value types,
+which directly store a representation of their value. This will not work for
+reference types, because the data in the variable is a memory address and not a
+representation of the data those variables represent.</p>
+<p>If <code>x</code> and <code>y</code> are reference types, then this means <code>x == y</code> will ask whether
+<code>x</code> and <code>y</code> point to the same location in memory, not whether they point to
+identical data. If you have two different but identical objects stored in <code>x</code>
+and <code>y</code>, then <code>x == y</code> will evaluate to <code>false</code>. Try running the code below to
+see this in action:</p>
+<pre><code class="language-java">int[] a = new int[] { 1, 2, 3 };
+int[] b = new int[] { 1. 2, 3 };
+int[] c = a;
+
+if (a == b) {
+    println(&quot;a equals b&quot;);
+} else {
+    println(&quot;a doesn't equal b&quot;);
+}
+
+if (b == c) {
+    println(&quot;b equals c&quot;);
+} else {
+    println(&quot;b doesn't equal c&quot;);
+}
+
+if (a == c) {
+    println(&quot;a equals c&quot;);
+} else {
+    println(&quot;a doesn't equal c&quot;);
+}
+
+String x = new String(&quot;Hello&quot;);
+String y = new String(&quot;Hello&quot;);
+String z = y;
+
+if (x == y) {
+    println(&quot;x equals y&quot;);
+} else {
+    println(&quot;x doesn't equal y&quot;);
+}
+
+if (y == z) {
+    println(&quot;y equals z&quot;);
+} else {
+    println(&quot;y doesn't equal z&quot;);
+}
+
+if (x == z) {
+    println(&quot;x equals z&quot;);
+} else {
+    println(&quot;x doesn't equal z&quot;);
+}
+</code></pre>
+<p>Some reference types define an <code>equals</code> method to compare their data instead of
+their memory addresses. The <code>String</code> type does this, so we can use <code>x.equals(y)</code>
+to ask whether the contents of two strings <code>x</code> and <code>y</code> are equal. If <code>x</code> and <code>y</code>
+are strings, then <code>x.equals(y)</code> behaves the same as <code>a == b</code> would behave if <code>a</code>
+and <code>b</code> were value types.</p>
+<p>Other reference types, such as arrays, do not define their own version of the
+<code>equals</code> method. These reference types still have the <code>equals</code> method, but it
+won't be any more helpful than <code>==</code>. If we want to compare two arrays, then we
+need to write our own code to check each element of the arrays and determine
+whether they're equal:</p>
+<pre><code class="language-java">boolean areEqual(int[] a, int[] b) {
+    // If the lengths differ, then we know they're different. It also wouldn't
+    // be safe to iterate over both with one loop, so it's important to return
+    // before we get to the for loop.
+    if (a.length != b.length) {
+        return false;
+    }
+
+    // If the lengths are the same (and we'll return earlier if they aren't),
+    // then we can use a loop to compare the elements at each index of the
+    // arrays.
+    for (int i = 0; i &lt; a.length; ++i) {
+        // If two elements at the same index don't match, then the arrays aren't
+        // equal
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+
+    // If we don't find any pairs of unequal elements, then we know the arrays
+    // have the same length and contain the same elements. Sounds like they're
+    // equal!
+    return true;
+}
+
+int[] a = new int[] { 1, 2, 3 };
+int[] b = new int[] { 1, 2, 3 };
+int[] c = new int[] { 1, 2, 3, 4 };
+
+println(&quot;If we use the == comparison operator:&quot;);
+
+if (a == b) {
+    println(&quot;a equals b&quot;);
+} else {
+    println(&quot;a doesn't equal b&quot;);
+}
+if (b == c) {
+    println(&quot;b equals c&quot;);
+} else {
+    println(&quot;b doesn't equal c&quot;);
+}
+if (a == c) {
+    println(&quot;a equals c&quot;);
+} else {
+    println(&quot;a doesn't equal c&quot;);
+}
+
+println(&quot;If we use the equals method:&quot;);
+
+if (a.equals(b)) {
+    println(&quot;a equals b&quot;);
+} else {
+    println(&quot;a doesn't equal b&quot;);
+}
+if (b.equals(c)) {
+    println(&quot;b equals c&quot;);
+} else {
+    println(&quot;b doesn't equal c&quot;);
+}
+if (a.equals(c)) {
+    println(&quot;a equals c&quot;);
+} else {
+    println(&quot;a doesn't equal c&quot;);
+}
+
+println(&quot;If we use the areEqual function:&quot;);
+
+if (areEqual(a, b)) {
+    println(&quot;a equals b&quot;);
+} else {
+    println(&quot;a doesn't equal b&quot;);
+}
+if (areEqual(b, c)) {
+    println(&quot;b equals c&quot;);
+} else {
+    println(&quot;b doesn't equal c&quot;);
+}
+if (areEqual(a, c)) {
+    println(&quot;a equals c&quot;);
+} else {
+    println(&quot;a doesn't equal c&quot;);
+}
+</code></pre>
+<h2 id="immutable-data"><a class="header" href="#immutable-data">Immutable Data</a></h2>
+<p>The <code>String</code> type is <strong>immutable</strong>, which means that we can't modify (or mutate)
+the data inside of a string after we create the string. However, we can create
+new strings based on an existing string, which is what happens when we
+concatenate strings or call one of the string methods (such as <code>toLowerCase</code>).
+The following code demonstrates that the original string <code>a</code> won't change when
+we concatenate it with other strings and call various methods on it.</p>
+<pre><code class="language-java">String a = &quot;Hello&quot;;
+
+// Show the value of a
+println(&quot;a: &quot; + a);
+
+// Create new strings using a
+String b = a + &quot; World&quot;;
+String c = a.toUpperCase();
+String d = a.replace(&quot;ello&quot;, &quot;i&quot;);
+
+// Show the value of a again (hasn't changed)
+println(&quot;a: &quot; + a);
+
+// Show the value of the variables we created using a
+println(&quot;b: &quot; + b);
+println(&quot;c: &quot; + c);
+println(&quot;d: &quot; + d);
+</code></pre>
+<p>If we reassign a variable containing a reference to immutable data, then the
+original data still exists. Just because the string <code>a</code> points to is immutable,
+this doesn't mean the memory address stored in <code>a</code> can't be changed to point to
+different data.</p>
+<pre><code class="language-java">// Create a new string
+String a = &quot;Hello&quot;;
+
+// Create a second variable pointing to the same string
+String b = a;
+
+// Show the values in each string
+println(&quot;a: &quot; + a);
+println(&quot;b: &quot; + b);
+
+// Create a new string and change a to point to the new string
+a = a.toUpperCase();
+
+// Show the values in each string again, which demonstrates that the original
+// string (stored in b) has not changed
+println(&quot;a: &quot; + a);
+println(&quot;b: &quot; + b);
+</code></pre>
+<h2 id="mutable-data"><a class="header" href="#mutable-data">Mutable Data</a></h2>
+<p>Unlike the <code>String</code> type, an array is <strong>mutable</strong> (which means its data <em>can</em>
+change). We can reassign any element of an array to a different value, which
+changes part of the array. If multiple variables point to the same array, then
+they will both reflect this change.</p>
+<pre><code class="language-java">// Need a way to print arrays
+void printArray(String label, int[] array) {
+    // Include a label for the array
+    String s = label + &quot;: &quot;;
+    // Add each int to the string
+    for (int x: array) {
+        s += x + &quot; &quot;;
+    }
+    println(s);
+}
+
+// Create a new array
+int[] a = new int[] { 1, 2, 3, 4 };
+
+// Show the value of a
+printArray(&quot;a&quot;, a);
+
+// Create variables that point to the same array as a
+int[] b = a;
+int[] c = a;
+// Create a variable that points to a different array, but contains the same
+// elements as a
+int[] d = new int[] { a[0], a[1], a[2], a[3] };
+
+// Change a different element of each variable's array
+a[0] = 5;
+b[1] = 6;
+c[2] = 7;
+d[3] = 8;
+
+// Show the value of the array that a points to
+printArray(&quot;a&quot;, a);
+
+// b and c contain the same elements because they point to the same array as a
+printArray(&quot;b&quot;, b);
+printArray(&quot;c&quot;, c);
+
+// d contains different elements because it points to a different array from a
+printArray(&quot;d&quot;, d);
+
+// Create a new array using the current elements of a
+int[] e = new int[] { a[0], a[1], a[2], a[3] };
+
+// e has the same elements as a
+printArray(&quot;e&quot;, e);
+
+// Change each element of e
+e[0] = -1;
+e[1] = -2;
+e[2] = -3;
+e[3] = -4;
+
+// Changing e hasn't affected a, b, c, or d because e is a different array
+printArray(&quot;a&quot;, a);
+printArray(&quot;b&quot;, b);
+printArray(&quot;c&quot;, c);
+printArray(&quot;d&quot;, d);
+printArray(&quot;e&quot;, e);
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../jshell/arrays/iteration.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="../../java/compiled_intro.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../jshell/arrays/iteration.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="../../java/compiled_intro.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

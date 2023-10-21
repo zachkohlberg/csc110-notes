@@ -1,0 +1,243 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js navy">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Do-While Loop - CSC110 Notebook</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "navy";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = null;
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../intro.html">Introduction</a></li><li class="chapter-item expanded affix "><li class="part-title">Setup</li><li class="chapter-item expanded "><a href="../software.html"><strong aria-hidden="true">1.</strong> Software</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../software/terminal.html"><strong aria-hidden="true">1.1.</strong> Terminal</a></li><li class="chapter-item expanded "><a href="../software/text_editor.html"><strong aria-hidden="true">1.2.</strong> Text Editor</a></li><li class="chapter-item expanded "><a href="../software/java.html"><strong aria-hidden="true">1.3.</strong> Java</a></li></ol></li><li class="chapter-item expanded "><a href="../quickstart.html"><strong aria-hidden="true">2.</strong> Quickstart</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../quickstart/jshell.html"><strong aria-hidden="true">2.1.</strong> Jshell</a></li><li class="chapter-item expanded "><a href="../quickstart/output.html"><strong aria-hidden="true">2.2.</strong> Output</a></li><li class="chapter-item expanded "><a href="../quickstart/variables.html"><strong aria-hidden="true">2.3.</strong> Variables</a></li><li class="chapter-item expanded "><a href="../quickstart/input.html"><strong aria-hidden="true">2.4.</strong> Input</a></li><li class="chapter-item expanded "><a href="../quickstart/data_types.html"><strong aria-hidden="true">2.5.</strong> Data Types</a></li><li class="chapter-item expanded "><a href="../quickstart/functions.html"><strong aria-hidden="true">2.6.</strong> Functions</a></li><li class="chapter-item expanded "><a href="../quickstart/comments.html"><strong aria-hidden="true">2.7.</strong> Comments</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">Jshell</li><li class="chapter-item expanded "><a href="../variables.html"><strong aria-hidden="true">3.</strong> Variables</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../variables/creating_variables.html"><strong aria-hidden="true">3.1.</strong> Creating Variables</a></li><li class="chapter-item expanded "><a href="../variables/assignment.html"><strong aria-hidden="true">3.2.</strong> Assignment Operator</a></li><li class="chapter-item expanded "><a href="../variables/names.html"><strong aria-hidden="true">3.3.</strong> Variable Names</a></li><li class="chapter-item expanded "><a href="../variables/paper.html"><strong aria-hidden="true">3.4.</strong> Pen & Paper Analogy</a></li><li class="chapter-item expanded "><a href="../variables/scope.html"><strong aria-hidden="true">3.5.</strong> Scope and Shadowing</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.6.</strong> Reference Types</div></li></ol></li><li class="chapter-item expanded "><a href="../io.html"><strong aria-hidden="true">4.</strong> I/O</a></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">4.1.</strong> Outputting to System.out and System.err</div></li><li class="chapter-item expanded "><a href="../io/printf.html"><strong aria-hidden="true">4.2.</strong> Formatting with printf</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.3.</strong> Reading from System.in with a Scanner</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.4.</strong> Redirecting Standard I/O</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.5.</strong> File Input with Scanner</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.6.</strong> File Output with PrintWriter</div></li></ol></li><li class="chapter-item expanded "><a href="../types.html"><strong aria-hidden="true">5.</strong> Types</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../types/numeric.html"><strong aria-hidden="true">5.1.</strong> Numeric Types</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../types/numeric/integers.html"><strong aria-hidden="true">5.1.1.</strong> Integers</a></li><li class="chapter-item expanded "><a href="../types/numeric/floats.html"><strong aria-hidden="true">5.1.2.</strong> Floating-Point Numbers</a></li><li class="chapter-item expanded "><a href="../types/numeric/chars.html"><strong aria-hidden="true">5.1.3.</strong> Chars</a></li><li class="chapter-item expanded "><a href="../types/numeric/modulo.html"><strong aria-hidden="true">5.1.4.</strong> Modulo</a></li><li class="chapter-item expanded "><a href="../types/numeric/conversions.html"><strong aria-hidden="true">5.1.5.</strong> Numeric Conversions</a></li></ol></li><li class="chapter-item expanded "><a href="../types/strings.html"><strong aria-hidden="true">5.2.</strong> Strings</a></li><li class="chapter-item expanded "><a href="../types/booleans.html"><strong aria-hidden="true">5.3.</strong> Booleans</a></li><li class="chapter-item expanded "><a href="../types/primitives.html"><strong aria-hidden="true">5.4.</strong> Primitive Type Summary</a></li></ol></li><li class="chapter-item expanded "><a href="../flowcharts.html"><strong aria-hidden="true">6.</strong> Flowcharts</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../flowcharts/sequential.html"><strong aria-hidden="true">6.1.</strong> Sequential Instructions</a></li><li class="chapter-item expanded "><a href="../flowcharts/decisions.html"><strong aria-hidden="true">6.2.</strong> Decision Points</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.3.</strong> Functions</div></li></ol></li><li class="chapter-item expanded "><a href="../if.html"><strong aria-hidden="true">7.</strong> If Statements</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../if/if.html"><strong aria-hidden="true">7.1.</strong> If</a></li><li class="chapter-item expanded "><a href="../if/comparisons.html"><strong aria-hidden="true">7.2.</strong> Comparisons</a></li><li class="chapter-item expanded "><a href="../if/else.html"><strong aria-hidden="true">7.3.</strong> Else</a></li><li class="chapter-item expanded "><a href="../if/nested.html"><strong aria-hidden="true">7.4.</strong> Nested Ifs</a></li><li class="chapter-item expanded "><a href="../if/else_if.html"><strong aria-hidden="true">7.5.</strong> Else-If</a></li><li class="chapter-item expanded "><a href="../if/mistakes.html"><strong aria-hidden="true">7.6.</strong> Mistakes to Avoid</a></li></ol></li><li class="chapter-item expanded "><a href="../boolean.html"><strong aria-hidden="true">8.</strong> Boolean Logic</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../boolean/operators.html"><strong aria-hidden="true">8.1.</strong> Boolean Operators</a></li><li class="chapter-item expanded "><a href="../boolean/short-circuit.html"><strong aria-hidden="true">8.2.</strong> Short-Circuiting</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">8.3.</strong> Bitwise Operators</div></li></ol></li><li class="chapter-item expanded "><a href="../early_api.html"><strong aria-hidden="true">9.</strong> Early Java API</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../early_api/math.html"><strong aria-hidden="true">9.1.</strong> Math</a></li><li class="chapter-item expanded "><a href="../early_api/string.html"><strong aria-hidden="true">9.2.</strong> String</a></li></ol></li><li class="chapter-item expanded "><a href="../loops.html"><strong aria-hidden="true">10.</strong> Loops</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../loops/while.html"><strong aria-hidden="true">10.1.</strong> While Loop</a></li><li class="chapter-item expanded "><a href="../loops/do.html" class="active"><strong aria-hidden="true">10.2.</strong> Do-While Loop</a></li><li class="chapter-item expanded "><a href="../loops/counting.html"><strong aria-hidden="true">10.3.</strong> Counting Loop</a></li><li class="chapter-item expanded "><a href="../loops/flag.html"><strong aria-hidden="true">10.4.</strong> Flag-Controlled Loop</a></li><li class="chapter-item expanded "><a href="../loops/for.html"><strong aria-hidden="true">10.5.</strong> For Loop</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">10.6.</strong> Nested Loops</div></li></ol></li><li class="chapter-item expanded "><a href="../jshell/functions.html"><strong aria-hidden="true">11.</strong> Functions</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../jshell/functions/define.html"><strong aria-hidden="true">11.1.</strong> Defining Functions in Jshell</a></li><li class="chapter-item expanded "><a href="../jshell/functions/call.html"><strong aria-hidden="true">11.2.</strong> Calling Functions</a></li></ol></li><li class="chapter-item expanded "><a href="../jshell/arrays.html"><strong aria-hidden="true">12.</strong> Arrays</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../jshell/arrays/create.html"><strong aria-hidden="true">12.1.</strong> Creating Arrays</a></li><li class="chapter-item expanded "><a href="../jshell/arrays/access.html"><strong aria-hidden="true">12.2.</strong> Accessing and Mutating Arrays</a></li><li class="chapter-item expanded "><a href="../jshell/arrays/iteration.html"><strong aria-hidden="true">12.3.</strong> Iterating Over Arrays</a></li><li class="chapter-item expanded "><a href="../jshell/arrays/ref_types.html"><strong aria-hidden="true">12.4.</strong> Reference vs Value Types</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">Compiled Java</li><li class="chapter-item expanded "><a href="../java/compiled_intro.html"><strong aria-hidden="true">13.</strong> Jshell to Compiled Java</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../java/compiled_intro/program_structure.html"><strong aria-hidden="true">13.1.</strong> Java Program Structure</a></li><li class="chapter-item expanded "><a href="../java/compiled_intro/compilation.html"><strong aria-hidden="true">13.2.</strong> Compile and Run</a></li><li class="chapter-item expanded "><a href="../java/compiled_intro/syntax.html"><strong aria-hidden="true">13.3.</strong> Syntax Changes</a></li></ol></li><li class="chapter-item expanded "><div>Glossary</div></li><li class="chapter-item expanded affix "><a href="../templates.html">Syntax Templates and Common Patterns</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">CSC110 Notebook</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="do-while-loop"><a class="header" href="#do-while-loop">Do-While Loop</a></h1>
+<p>A do-while loop is a slight variant of a while loop. It checks its condition at
+the end of the loop rather than at the beginning, so it will always execute the
+body at least once, even if its condition is initally false. Compare the
+following code and flowchart to the <a href="./while.html">while loop</a> flowchart to see
+the difference:</p>
+<pre><code class="language-java">int x = 0;
+do {
+    x = x + 1;
+    println(x);
+} while (x &lt; 100);
+</code></pre>
+<p><img src="../dia/loops/do1.png" alt="Flowchart: Do-While Loop" /></p>
+<p>The structure of a do-while loop is similar to a while loop, with two small
+differences:</p>
+<ul>
+<li>The loop begins with the <code>do</code> keyword and no condition</li>
+<li>We still use the <code>while</code> keyword, but after the loop's body, and there is a
+semicolon after the condition</li>
+</ul>
+<p>The do-while loop exists purely for convenience, and chance are you'll rarely
+use it. It's worth using when it makes your code clearer or more concise, but
+you can always use a standard while loop to accomplish the same thing.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../loops/while.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="../loops/counting.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../loops/while.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="../loops/counting.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>
