@@ -79,7 +79,10 @@
 
 # Compiled Java
 
-- [Jshell to Compiled Java]()
+- [Jshell to Compiled Java](./java/compiled_intro.md)
+    - [Java Program Structure](./java/compiled_intro/program_structure.md)
+    - [Compile and Run](./java/compiled_intro/compilation.md)
+    - [Syntax Changes](./java/compiled_intro/syntax.md)
 
 [Glossary]()
 [Syntax Templates and Common Patterns](./templates.md)
