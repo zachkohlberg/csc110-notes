@@ -75,7 +75,7 @@
     - [Creating Arrays](./jshell/arrays/create.md)
     - [Accessing and Mutating Arrays](./jshell/arrays/access.md)
     - [Iterating Over Arrays](./jshell/arrays/iteration.md)
-    - [Mutable Data](./jshell/arrays/mutability.md)
+    - [Reference vs Value Types](./jshell/arrays/ref_types.md)
 
 # Compiled Java
 
